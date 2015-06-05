@@ -5,8 +5,6 @@ $installer = $this;
 $installer->startSetup();
 
 $installer->run("
-    DROP TABLE `{$installer->getTable('congresoweb_reviews')}`;
-
     CREATE TABLE IF NOT EXISTS `{$installer->getTable('congresoweb_reviews')}` (
       `review_id` int unsigned NOT NULL auto_increment,
       `customer_id` int(11) unsigned NOT NULL,
