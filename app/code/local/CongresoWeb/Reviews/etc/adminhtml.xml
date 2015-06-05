@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <orderreviews translate="title" module="congresoweb_reviews">
+                                        <title>Order Reviews</title>
+                                    </orderreviews>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                    <orderreviews translate="title" module="congresoweb_reviews">
+                        <title>Order Reviews</title>
+                        <children>
+                            <reviews translate="title" module="congresoweb_reviews">
+                                <title>Reviews</title>
+                            </reviews>
+                        </children>
+                    </orderreviews>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+    <menu>
+        <orderreviews translate="title" module="congresoweb_reviews">
+            <title>Order Reviews</title>
+            <sort_order>110</sort_order>
+            <depends>
+                <module>CongresoWeb_Reviews</module>
+            </depends>
+            <children>
+                <reviews translate="title" module="congresoweb_reviews">
+                    <title>Reviews</title>
+                    <action>adminhtml/orderReviews</action>
+                    <sort_order>10</sort_order>
+                </reviews>
+            </children>
+        </orderreviews>
+    </menu>
+</config>

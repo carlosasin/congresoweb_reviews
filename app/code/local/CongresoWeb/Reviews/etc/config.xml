@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <CongresoWeb_Reviews>
+            <version>0.1.0</version>
+        </CongresoWeb_Reviews>
+    </modules>
+    <global>
+        <models>
+            <congresoweb_reviews>
+                <class>CongresoWeb_Reviews_Model</class>
+                <resourceModel>congresoweb_reviews_mysql4</resourceModel>
+            </congresoweb_reviews>
+            <congresoweb_reviews_mysql4>
+                <class>CongresoWeb_Reviews_Model_Mysql4</class>
+                <entities>
+                    <review>
+                        <table>congresoweb_reviews</table>
+                    </review>
+                </entities>
+            </congresoweb_reviews_mysql4>
+        </models>
+
+        <blocks>
+            <congresoweb_reviews>
+                <class>CongresoWeb_Reviews_Block</class>
+            </congresoweb_reviews>
+        </blocks>
+
+        <helpers>
+            <congresoweb_reviews>
+                <class>CongresoWeb_Reviews_Helper</class>
+            </congresoweb_reviews>
+        </helpers>
+
+        <resources>
+            <congresoweb_reviews_setup>
+                <setup>
+                    <module>CongresoWeb_Reviews</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </congresoweb_reviews_setup>
+            <congresoweb_reviews_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </congresoweb_reviews_write>
+            <congresoweb_reviews_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </congresoweb_reviews_read>
+        </resources>
+
+        <template>
+            <email>
+                <orderreview module="CongresoWeb_Reviews">
+                    <label>Customer Order Review</label>
+                    <file>congresoweb/reviews/customer_review.html</file>
+                    <type>html</type>
+                </orderreview>
+            </email>
+        </template>
+    </global>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <CongresoWeb_Reviews before="Mage_Adminhtml">CongresoWeb_Reviews_Adminhtml</CongresoWeb_Reviews>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <frontend>
+        <routers>
+            <orderreview>
+                <use>standard</use>
+                <args>
+                    <module>CongresoWeb_Reviews</module>
+                    <frontName>orderreview</frontName>
+                </args>
+            </orderreview>
+        </routers>
+        <layout>
+            <updates>
+                <asignados>
+                    <file>congresoweb/reviews.xml</file>
+                </asignados>
+            </updates>
+        </layout>
+    </frontend>
+
+    <crontab>
+        <jobs>
+            <orderreviews_sendmail>
+                <schedule>
+                    <cron_expr>0 0 * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>congresoweb_reviews/review::sendmail</model>
+                </run>
+            </orderreviews_sendmail>
+        </jobs>
+    </crontab>
+
+</config>

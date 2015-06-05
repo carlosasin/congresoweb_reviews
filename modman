@@ -1,0 +1,5 @@
+app/etc/modules/CongresoWeb_Reviews.xml				    app/etc/modules/CongresoWeb_Reviews.xml	
+app/code/local/CongresoWeb/Reviews/        		        app/code/local/CongresoWeb/Reviews/	
+app/design/frontend/base/default/layout/congresoweb/    app/design/frontend/base/default/layout/congresoweb/
+app/design/frontend/base/default/template/congresoweb/	app/design/frontend/base/default/template/congresoweb/
+app/locale/en_US/template/email/congresoweb/            app/locale/en_US/template/email/congresoweb/

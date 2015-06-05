@@ -1,0 +1,44 @@
+<h2><?php echo $this->__('Order Review') ?></h2>
+
+<form action="<?php echo $this->getUrl('orderreview/index/save') ?>" method="post" id="order_review_form">
+
+    <?php echo $this->getBlockHtml('formkey')?>
+
+    <input type="hidden" name="order" value="<?php echo $this->getOrder() ?>" />
+
+    <label for="title"><?php echo $this->__('Title') ?>: </label>
+    <input type="text" name="title" class="required-entry"/>
+
+    <br /><br />
+
+    <label for="rating">Rating: </label>
+    <select name="rating" class="required-entry">
+        <option value="">-</option>
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+    </select>
+
+    <br /><br />
+
+    <label for="description"><?php echo $this->__('Description') ?>: </label><br />
+    <textarea name="description" class="required-entry"></textarea>
+
+    <br /><br />
+
+    <button type="submit" class="button"><?php echo $this->__('Send') ?></button>
+</form>
+
+<script type="text/javascript">
+//<![CDATA[
+    var dataForm = new VarienForm('order_review_form', true);
+//]]>
+</script>
