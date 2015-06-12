@@ -18,4 +18,12 @@ class CongresoWeb_Reviews_Adminhtml_OrderReviewsController extends Mage_Adminhtm
         $content = $this->getLayout()->createBlock('congresoweb_reviews/adminhtml_reviews_grid')->getCsv();
         $this->_prepareDownloadResponse($fileName, $content);
     }
+
+    public function gridAction(){
+        $this->loadLayout();
+        $this->getResponse()->setBody(
+            $this->getLayout()->createBlock('congresoweb_reviews/adminhtml_reviews_grid')->toHtml()
+        );
+    }
+
 }
